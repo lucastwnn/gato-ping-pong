@@ -1,8 +1,8 @@
 import discord
 from discord import app_commands
+import os
 
-TOKEN = "MTQ2Mzg5NDE3MzI4MjM0MTAyMA.G6tZYm.MrnjRJQFLmdBBW5sz59muYbq2_hYoEaUXdaZRQ"
-
+TOKEN = os.getenv("TOKEN")
 
 
 class MyBot(discord.Client):
@@ -32,7 +32,6 @@ async def ping(interaction: discord.Interaction):
     await interaction.response.send_message("pong🏓")
 
 
-# Mensajes automáticos
 @bot.event
 async def on_message(message):
 
@@ -58,7 +57,7 @@ async def on_message(message):
         return
 
 
-    # que -> so
+    # que
     if texto.strip() == "que":
         await message.channel.send("so")
         return
@@ -85,15 +84,7 @@ async def on_message(message):
         return
 
 
-    # gay
-    if "gay" in texto:
-        await message.channel.send(
-            "eres pedazo malaya ctm perro maricon aweonao kliao te paso por los cocos xala qliao te meo desde el costanera xupame toda la corneta como si te estuvieses mandando un cuxufli 🥀"
-        )
-        return
-
-
-    # Argentina
+    # che / boludo
     if "che" in texto or "che boludo" in texto or "boludo" in texto:
         await message.channel.send(
             "https://images8.alphacoders.com/530/530088.jpg"
@@ -101,7 +92,7 @@ async def on_message(message):
         return
 
 
-    # Jueves
+    # jueves
     if "jueves" in texto:
         await message.channel.send(
             "https://i.pinimg.com/736x/6d/c6/11/6dc611982acccab162c4cf947c645399.jpg"
@@ -109,7 +100,7 @@ async def on_message(message):
         return
 
 
-    # Fracasado
+    # fracasado
     if "fracasado" in texto:
         await message.channel.send(
             "eres por tratar de papear a otra gente"
@@ -117,7 +108,6 @@ async def on_message(message):
         return
 
 
-    # Importante para que funcionen comandos slash
     await bot.process_commands(message)
 
 
