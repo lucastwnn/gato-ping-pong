@@ -4,6 +4,9 @@ import os
 
 TOKEN = os.getenv("TOKEN")
 
+# Prueba temporal para Render
+print("TOKEN CARGADO:", TOKEN[:10] if TOKEN else "NO HAY TOKEN")
+
 
 class MyBot(discord.Client):
     def __init__(self):
@@ -26,7 +29,7 @@ async def on_ready():
     print(f"Conectado como {bot.user}")
 
 
-# Comando /ping
+# /ping
 @bot.tree.command(name="ping", description="Responde con pong")
 async def ping(interaction: discord.Interaction):
     await interaction.response.send_message("pong🏓")
@@ -63,7 +66,7 @@ async def on_message(message):
         return
 
 
-    # queque / advincula / luis advincula
+    # queque / advincula
     if "queque" in texto or "advincula" in texto or "luis advincula" in texto:
         await message.channel.send("quiero queque")
         await message.channel.send(
